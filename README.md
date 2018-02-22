@@ -1,8 +1,8 @@
-#Deploying  Over the AWS Cloud
+# Deploying  Over the AWS Cloud
 Deploying the Web application over the Cloud. The application that is being deployed is name as Item Catalog which was developed as part of the udacity project only.
 The application is based mainly out of python 2.7 and SQL Alchemy.
 
-#Creating an AWS account and setup
+# Creating an AWS account and setup
 
 1) Create an AWS account
 2) Add Lightsail service from AWS
@@ -19,7 +19,7 @@ The application is based mainly out of python 2.7 and SQL Alchemy.
 12) Perform ssh to lightsail accounts using below command.
       ssh -i LightsailDefault.pem ubuntu@18.219.88.85
 
-#Create a New User account 'grader' and give sudo access
+# Create a New User account 'grader' and give sudo access
 
 1) Do ssh from local computer to lightsail account as mentioned in last step of above section
 2) Add a new user called grader:
@@ -33,19 +33,19 @@ The application is based mainly out of python 2.7 and SQL Alchemy.
 
      $ sudo apt-get install finger.
 
-#Update all currently installed packages
+# Update all currently installed packages
   Run Below 2 command to update the packages
 
   1) $ sudo apt-get update  -> It updates the source list
   2) $ sudo apt-get upgrade -> It updates the packages
 
-#Configure the local timezone to UTC
+# Configure the local timezone to UTC
 
   1) Open time configuration dialog and set it to UTC with: $ sudo dpkg-reconfigure tzdata.
   2) Install ntp daemon ntpd for a better synchronization of the server's time over the network connection
       $ sudo apt-get install ntp.
 
-#Configure the key-based authentication for grader user
+# Configure the key-based authentication for grader user
   1) Login into grader account from the ubuntu account using sudo su grader
 
       $ sudo su grader
@@ -65,25 +65,25 @@ The application is based mainly out of python 2.7 and SQL Alchemy.
   9) Connect ssh directly into grader accounts from local putty or gitbash
       $ ssh -i grader.pem grader@18.219.88.85
 
-#Disable ssh login for root user
+# Disable ssh login for root user
 
 $ sudo vim /etc/ssh/sshd_config. Find the PermitRootLogin line and edit it to no.
 
-#Enforce key-based authentication
+# Enforce key-based authentication
 
 sudo vim /etc/ssh/sshd_config. Find the PasswordAuthentication line and edit it to no.
 {It is by already no}
 
-#Configure SSH to Port 2200 and disable Root login
+# Configure SSH to Port 2200 and disable Root login
 sudo vim /etc/ssh/sshd_config. Find the Port line and edit it to 2200
 
 #Restart SSH Service:
 $ service sshd restart
 
-#Configure the lightsail Firewall to open port 2200
+# Configure the lightsail Firewall to open port 2200
   Go to the instance management page on the Networking tab under Firewall. Change the open port for SSH from 22 to 2200.
 
-#Configure the Uncomplicated Firewall (UFW)
+# Configure the Uncomplicated Firewall (UFW)
   $  sudo ufw default deny incoming
   $  sudo ufw default allow outgoing
   $  sudo ufw allow SSH
@@ -91,12 +91,12 @@ $ service sshd restart
   $  sudo ufw allow www
   $  sudo ufw allow ntp
 
-  ##Enable the Firewall
+  ## Enable the Firewall
     $ sudo ufw enable
-  ##Check the status of Firewall
+  ## Check the status of Firewall
     $ sudo ufw status
 
-#Validate the SSH Key based login on new Port
+# Validate the SSH Key based login on new Port
   $ ssh -i grader.pem grader@18.219.88.85 -p2200
 
 
@@ -273,88 +273,11 @@ The way to determine the location of the Python virtual environment is to activa
 and then run the command
 $ /var/www/item_catalog/item_catalog/venv
 
+4) Restart Apache:
+  $ sudo service apache2 restart
 
 
 
-
-Install Flask
-Install pip installer:
-$ sudo apt-get install python-pip
-Install virtualenv:
-$ sudo pip install virtualenv
-Set virtual environment to name 'venv':
-$ sudo virtualenv venv
-
-New : 18.217.193.222
-ssh -i grader.pem grader@18.217.193.222
-
-timezone
-
-Open the timezone selection dialog:
-$ sudo dpkg-reconfigure tzdata
-
-Then chose 'None of the above', then UTC.
--------------------------old------------------------------
-Login to grader account with Below
-  ssh -i linuxCourse grader@18.219.226.248
-
-
-Login to Ubunty account on lightsail
-  ssh -i ubuntulightsail.pem ubuntu@18.219.226.248
-
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDliCOpBkZeHnOtq4NoIzE7iDH51rsOkBqY3GkB9leBNGCXmzZocD1fFNY5tQzwHsvpo6uQ1TXT+xrT5XJ3SzanLoMP65S4rZj5O1f3zfx2J7yAIAYu/9OV1X88DZiBzyxUQ3aKLCEarEPJuPY57gP5bMDKr2Wg0Lrpr5OLKvYhQ6SMbw+stbex7g9X3MnPXD4ZMy7vVDGnY+qF99AZHvHTP4lWlgjj64EamN2leuTbcwMONngb0bzTvfG8tPxDmn3bbmQOK2/mq6gbyiNV2IJ1EVZpHbJs35MXKYSaI+xdUxrWxBP2WnkJfhvBoMMyXzzQgi35mVeA9iRFTpsuwSnz vagrant@vagrant-ubuntu-trusty-64
-
-Password for the linuxcourse is :student
-New user account :grader
-password for accnt :grader
-
-
-http://18.217.193.222/
-
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC5hVGx2KF303j2sie4VnIwj6LirFqvGc6/1w0PaBmgLpIIIbmBaOPXOMapQDpMvUjkp4lox3oCYv9v3KA1YSpX3UZkgHLPGXhtOmObcxp+RZc0N/6RbbUlUjq5zaqb9HfVKunaiGV7myH0Qz3t84XsNvWdd/JAV50HN9sEbAK2Ajda51lZa6WOQA1VSpwN0KUoXUxVQ0MBvS+u7n9rKXnYOIjaPyeyROpqubzRFHF2Z6kRWHao4p8ae1ksuVLEsi1hyXHrOOxxlKJ4LRtgdlFHvOlPIzl8rRRPKz/a998Kzvh2vm1SpFzFxd430EyGM4ynWcygl2Fo4K+Z1odPlPbH grader@ip-172-26-2-134
-
-Create new development environment in AWS lightsail.
-Download private keys and write down your public IP address.
-Move the private key file into the folder ~/.ssh:
-$ mv ~/Downloads/udacity_key.rsa ~/.ssh/
-Set file rights (only owner can write and read.):
-$ chmod 600 ~/.ssh/udacity_key.rsa
-SSH into the instance:
-<pre>$ ssh -i ~/.ssh/udacity_key.rsa root@PUPLIC-IP-ADDRESS
-
-sudo adduser grader
-
-in directory sudoers.d -> create a file grader to give sudo permission to grader
-grader ALL=(ALL:ALL) ALL
-
-
-sudo apt-get update
-sudo apt-get upgrade
-
-
----------------------------------------------------------------------------
-
-
-Create new development environment.->AWS lightsail
-Download private keys and write down your public IP address.
-Move the private key file into the folder ~/.ssh:
-$ mv ~/Downloads/private_key.pem  ~/.ssh/
-Set file rights (only owner can write and read.):
-$ chmod 600 ~/.ssh/private_key.pem
-SSH into the instance:
-<pre>$ ssh -i ~/.ssh/private_key.pem ubuntu@PUPLIC-IP-ADDRESS
-
-
-sudo adduser grader
-
-login to grader from SSH
-
-mkdir .ssh
-
-ssh-keygen to generate the public and private key for grader inside .ssh directory
-
-
-https://github.com/rawatankit90/item_catalog.git
 
 
 https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets
