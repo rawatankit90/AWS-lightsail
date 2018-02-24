@@ -264,7 +264,7 @@ The WSGIDaemonProcess line explicitly saying to use the virtual environment and 
 # Update OAuth authorized JavaScript origins and  Authorized redirect URI
 
   To let users correctly log-in using google account  
-  JavaScript origins : http://ec2-18-219-88-85.us-east-2.compute.amazonaws.com
+  JavaScript origins :
   Authorized URI :http://ec2-18-219-88-85.us-east-2.compute.amazonaws.com/oauth2callback
 
 Get the python root path in virtual environment
