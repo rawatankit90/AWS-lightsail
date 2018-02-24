@@ -1,6 +1,7 @@
 # Deploying  Over the AWS Cloud
-Deploying the Web application over the Cloud. The application that is being deployed is name as Item Catalog which was developed as part of the udacity project only.
-The application is based mainly out of python 2.7 and SQL Alchemy.
+The application that is being deployed is name as Item Catalog which was developed as part of the udacity project only.
+The application is developed using following languages and Open source APIs. 
+     python 2.7 with flask framework,Postgresql, Google Oauth API, Foursquare API. 
 
 # Creating an AWS account and setup
 
