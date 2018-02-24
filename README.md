@@ -17,7 +17,7 @@ The application is based mainly out of python 2.7 and SQL Alchemy.
 10) Place the downloaded key in the folder .ssh
 11) Give permission chmod 600 to the key
 12) Perform ssh to lightsail accounts using below command.
-      ssh -i LightsailDefault.pem ubuntu@18.219.88.85
+      `ssh -i LightsailDefault.pem ubuntu@18.219.88.85`
 
 # Create a New User account 'grader' and give sudo access
 
@@ -25,91 +25,93 @@ The application is based mainly out of python 2.7 and SQL Alchemy.
 2) Add a new user called grader:
       `$ sudo adduser grader `
 3) Create a new file under the suoders directory:
-      $ sudo nano /etc/sudoers.d/grader.
+      `$ sudo nano /etc/sudoers.d/grader`
 
     Fill that newly created file with the following line of text: "grader ALL=(ALL:ALL) ALL", then save it.
 
 4) Install Finger to verify the user
 
-     $ sudo apt-get install finger.
+     `$ sudo apt-get install finger`
 
 # Update all currently installed packages
   Run Below 2 command to update the packages
 
-  1) $ sudo apt-get update  -> It updates the source list
-  2) $ sudo apt-get upgrade -> It updates the packages
+  1) `$ sudo apt-get update  -> It updates the source list`
+  2) `$ sudo apt-get upgrade -> It updates the packages`
 
 # Configure the local timezone to UTC
 
-  1) Open time configuration dialog and set it to UTC with: $ sudo dpkg-reconfigure tzdata.
+  1) Open time configuration dialog and set it to UTC with: `$ sudo dpkg-reconfigure tzdata`
   2) Install ntp daemon ntpd for a better synchronization of the server's time over the network connection
-      $ sudo apt-get install ntp.
+      `$ sudo apt-get install ntp`
 
 # Configure the key-based authentication for grader user
   1) Login into grader account from the ubuntu account using sudo su grader
 
-      $ sudo su grader
+      `$ sudo su grader`
     'Kind of a inception feeling' (home to ubuntu and from ubuntu to grader)
   2) In the home directory create a hidden directory name .ssh using below commands
-      $ mkdir .ssh
+      `$ mkdir .ssh`
   3) Change directory
-      $ cd .ssh/
+      `$ cd .ssh/`
   4) generate a public-private key using below, and give a filename to store the file
-      $ ssh-keygen
+      `$ ssh-keygen`
   5) cat the file and copy the contents
-      $ cat grader
+      `$ cat grader`
   6) Create a New file in your local system and save the private key in .ssh directory created in Step 1
   7) Create a new file with name authorized_keys
-      $ touch authorized_keys
+      `$ touch authorized_keys`
   8) Copy the contents of the public key in the above filename
   9) Connect ssh directly into grader accounts from local putty or gitbash
-      $ ssh -i grader.pem grader@18.219.88.85
+      `$ ssh -i grader.pem grader@18.219.88.85`
 
 # Disable ssh login for root user
 
-$ sudo vim /etc/ssh/sshd_config. Find the PermitRootLogin line and edit it to no.
+  1) Find the PermitRootLogin line and edit it to no.  
+      `$ sudo vim /etc/ssh/sshd_config`
 
 # Enforce key-based authentication
-
-sudo vim /etc/ssh/sshd_config. Find the PasswordAuthentication line and edit it to no.
-{It is by already no}
+  1) Find the PasswordAuthentication line and edit it to no.
+  {It is by already no}
+      `$ sudo vim /etc/ssh/sshd_config`
 
 # Configure SSH to Port 2200 and disable Root login
-sudo vim /etc/ssh/sshd_config. Find the Port line and edit it to 2200
+  1) Find the Port line and edit it to 2200
+      `$ sudo vim /etc/ssh/sshd_config`
 
 #Restart SSH Service:
-$ service sshd restart
+      `$ service sshd restart`
 
 # Configure the lightsail Firewall to open port 2200
   Go to the instance management page on the Networking tab under Firewall. Change the open port for SSH from 22 to 2200.
 
 # Configure the Uncomplicated Firewall (UFW)
-  $  sudo ufw default deny incoming
-  $  sudo ufw default allow outgoing
-  $  sudo ufw allow SSH
-  $  sudo ufw allow 2222/tcp
-  $  sudo ufw allow www
-  $  sudo ufw allow ntp
+  `$  sudo ufw default deny incoming`
+  `$  sudo ufw allow SSH`
+  `$  sudo ufw default allow outgoing`
+  `$  sudo ufw allow www`
+  `$  sudo ufw allow 2222/tcp`
+  `$  sudo ufw allow ntp`
 
   ## Enable the Firewall
-    $ sudo ufw enable
+    `$ sudo ufw enable`
   ## Check the status of Firewall
-    $ sudo ufw status
+    `$ sudo ufw status`
 
 # Validate the SSH Key based login on new Port
-  $ ssh -i grader.pem grader@18.219.88.85 -p2200
+  `$ ssh -i grader.pem grader@18.219.88.85 -p2200`
 
 
 # Install Apache, mod_wsgi
 
 1) Install Apache web server:
-    $ sudo apt-get install apache2
+    `$ sudo apt-get install apache2`
 2) Open a browser and open your public ip address, e.g. http://18.219.88.85/ - It should Open a Ubuntu page which says - 'It works!' on the top of the page.
 3) Install mod_wsgi for serving Python apps from Apache
-    $ sudo apt-get install libapache2-mod-wsgi python-dev
-4) Enable mod_wsgi: $ sudo a2enmod wsgi
+    `$ sudo apt-get install libapache2-mod-wsgi python-dev`
+4) Enable mod_wsgi: `$ sudo a2enmod wsgi`
 5) Restart the Apache server for mod_wsgi to load:
-    $ sudo service apache2 restart
+    `$ sudo service apache2 restart`
 
 # Create Folder Structure for application deployment
 1) Move to the www directory:
