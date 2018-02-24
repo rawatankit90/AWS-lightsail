@@ -1,6 +1,7 @@
 # Deploying  Over the AWS Cloud
 The application that is being deployed is name as Item Catalog which was developed as part of the udacity project only.
-The application is developed using following languages and Open source APIs. 
+The application is developed using following languages and Open source APIs. Get More info about application from below  
+     URL :https://github.com/rawatankit90/item_catalog  
      python 2.7 with flask framework,Postgresql, Google Oauth API, Foursquare API. 
 
 # Creating an AWS account and setup
