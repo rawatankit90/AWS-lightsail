@@ -4,10 +4,10 @@ The goal of the project is to deployed the item catalog application developed ea
 will be used, Apache Web Server and apache Plugin mod_wsgi [for python] will be used.
 
 ## About the Application
-      The application that is being deployed is name as Item Catalog which was developed as part of the udacity project only.
-      The application is developed using following languages and Open source APIs.
-              *python 2.7 with flask framework,Postgresql, Google Oauth API, Foursquare API*
-      To Get More info about application, check below Link
+The application that is being deployed is name as Item Catalog which was developed as part of the udacity project only.  
+The application is developed using following languages and Open source APIs.  
+      *python 2.7 with flask framework,Postgresql, Google Oauth API, Foursquare API*
+To Get More info about application, check below Link  
             URL :[ Item_Catalog ](https://github.com/rawatankit90/item_catalog)  
       .
 
@@ -31,49 +31,45 @@ will be used, Apache Web Server and apache Plugin mod_wsgi [for python] will be 
 
 # Create a New User account 'grader' and give sudo access
 
-1) Do ssh from local computer to lightsail account as mentioned in last step of above section
-2) Add a new user called grader:
+1) ssh from local computer to lightsail account as mentioned in last step of above section
+2) Add a new user called grader:  
       `$ sudo adduser grader `
-3) Create a new file under the suoders directory:
+3) Create a new file under the suoders directory:  
       `$ sudo nano /etc/sudoers.d/grader`
+3.1) Paste the below code in the above newly created file   
+      `grader ALL=(ALL:ALL) ALL`, then save it.
 
-    Fill that newly created file with the following line of text: "grader ALL=(ALL:ALL) ALL", then save it.
-
-4) Install Finger to verify the user
-
+4) Install Finger to verify the user  
      `$ sudo apt-get install finger`
-5) verify the user is created
+5) verify the user is created  
      `$ finger`
 
 # Update all currently installed packages
   Run Below 2 command to update the packages
-
   1) `$ sudo apt-get update`  -> It updates the source list
   2) `$ sudo apt-get upgrade` -> It updates the packages
 
 # Configure the local timezone to UTC
-
   1) Open time configuration dialog and set it to UTC with: `$ sudo dpkg-reconfigure tzdata`
   2) Install ntp daemon ntpd for a better synchronization of the server's time over the network connection
       `$ sudo apt-get install ntp`
 
 # Configure the key-based authentication for grader user
   1) Login into grader account from the ubuntu account using sudo su grader
-
       `$ sudo su grader`
     'Kind of a inception movie feeling :)' (home to ubuntu and from ubuntu to grader)
   2) In the home directory create a hidden directory name .ssh using below commands
       `$ mkdir .ssh`
   3) Change directory
       `$ cd .ssh/`
-  4) generate a public-private key using below, and give a filename to store the file
+  4) Generate a public-private key using below, and give a filename to store the file
       `$ ssh-keygen`
-  5) cat the file and copy the contents
+  5) Copy the contents of file after opening
       `$ cat grader`
-  6) Create a New file in your local system and save the private key in .ssh directory created in Step 1
+  6) Create a new file grader in the .ssh directory present in your local system and paste the content in it.
   7) Create a new file with name authorized_keys
       `$ touch authorized_keys`
-  8) Copy the contents of the public key in the above filename
+  8) Copy the contents of the public key generated in step 4 '.pub' in the authorized_keys file
   9) Connect ssh directly into grader accounts from local putty or gitbash
       `$ ssh -i grader.pem grader@18.219.88.85`
 
@@ -95,7 +91,8 @@ will be used, Apache Web Server and apache Plugin mod_wsgi [for python] will be 
       `$ service sshd restart`
 
 # Configure the lightsail Firewall to open port 2200
-  Go to the instance management page on the Networking tab under Firewall. Change the open port for SSH from 22 to 2200.
+  Go to the instance management page on the Networking tab under Firewall present in Amazon account.  
+  open port 2200 by selecting custom option.
 
 # Configure the Uncomplicated Firewall (UFW)
   `$  sudo ufw default deny incoming`
@@ -105,9 +102,9 @@ will be used, Apache Web Server and apache Plugin mod_wsgi [for python] will be 
   `$  sudo ufw allow 2222/tcp`
   `$  sudo ufw allow ntp`
 
-  ## Enable the Firewall
+## Enable the Firewall
     `$ sudo ufw enable`
-  ## Check the status of Firewall
+## Check the status of Firewall
     `$ sudo ufw status`
 
 # Validate the SSH Key based login on new Port
@@ -118,7 +115,8 @@ will be used, Apache Web Server and apache Plugin mod_wsgi [for python] will be 
 
 1) Install Apache web server:
     `$ sudo apt-get install apache2`
-2) Open a browser and open your public ip address, e.g. http://18.219.88.85/ - It should Open a Ubuntu page which says - 'It works!' on the top of the page.
+2) Open a browser and open your public ip address, e.g. http://18.219.88.85/ - It should Open a Ubuntu page which says   
+      - 'It works!' on the top of the page.
 3) Install mod_wsgi for serving Python apps from Apache
     `$ sudo apt-get install libapache2-mod-wsgi python-dev`
 4) Enable mod_wsgi: `$ sudo a2enmod wsgi`
@@ -137,8 +135,9 @@ will be used, Apache Web Server and apache Plugin mod_wsgi [for python] will be 
 
 ## Install PIP, Flask, Virtual environment and other project dependencies
 
-Setting up a virtual environment will keep the application and its dependencies isolated from the main system. Changes to it will not affect the cloud server's system configurations.
-In this step, we will create a virtual environment for our flask application.
+Setting up a virtual environment will keep the application and its dependencies isolated from the main system.  
+Changes to it will not affect the cloud server's system configurations.  
+In this step, we will create a virtual environment for our flask application.  
 We will use pip to install virtualenv and Flask. If pip is not installed, install it on Ubuntu through apt-get.
 
   1)` $ sudo apt-get install python-pip`
@@ -161,7 +160,7 @@ We will use pip to install virtualenv and Flask. If pip is not installed, instal
 
 # Install Git
     `  $sudo apt-get install git`
-        ### Git is already installed
+        *Git is already installed*
       Configure your username:
     `    $ git config --global user.name <username>`
       Configure your email:
