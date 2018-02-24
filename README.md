@@ -190,8 +190,8 @@ We will use pip to install virtualenv and Flask. If pip is not installed, instal
   2) Paste in the following lines of code:
 
   Get the server alias from the :http://www.hcidata.info/host2ip.cgi by entering the Static IP
-
-`<VirtualHost *:80>
+```
+<VirtualHost *:80>
                 ServerName 18.219.88.85
                 ServerAdmin admin@18.219.88.85
                 ServerAlias ec2-18-219-88-85.us-east-2.compute.amazonaws.com
@@ -210,7 +210,8 @@ We will use pip to install virtualenv and Flask. If pip is not installed, instal
                 ErrorLog ${APACHE_LOG_DIR}/error.log
                 LogLevel warn
                 CustomLog ${APACHE_LOG_DIR}/access.log combined
-</VirtualHost>`
+</VirtualHost>
+```
 
 **The WSGIDaemonProcess line explicitly saying to use the virtual environment and its packages to run the application.**
 
@@ -280,5 +281,5 @@ and then run the command
 
 
 
-
+[1]: https://www.digitalocean.com/community/tutorials/how-to-add-and-delete-users-on-an-ubuntu-14-04-vps "How To Add and Delete Users on an Ubuntu 14.04 VPS"
 https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets
