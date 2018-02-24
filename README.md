@@ -3,7 +3,7 @@
 The goal of the project is to deployed the item catalog application developed earlier to be accessible over WEB. For this Amazon Cloud Platform
 will be used, Apache Web Server and apache Plugin mod_wsgi [for python] will be used.
 
-  ## About the Application
+## About the Application
       The application that is being deployed is name as Item Catalog which was developed as part of the udacity project only.
       The application is developed using following languages and Open source APIs.
               *python 2.7 with flask framework,Postgresql, Google Oauth API, Foursquare API*
