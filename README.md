@@ -1,25 +1,33 @@
-# Deploying  Over the AWS Cloud
-The application that is being deployed is name as Item Catalog which was developed as part of the udacity project only.
-The application is developed using following languages and Open source APIs. Get More info about application from below  
-     URL :https://github.com/rawatankit90/item_catalog  
-     python 2.7 with flask framework,Postgresql, Google Oauth API, Foursquare API. 
+# Deploying application Over the AWS Cloud
+
+The goal of the project is to deployed the item catalog application developed earlier to be accessible over WEB. For this Amazon Cloud Platform
+will be used, Apache Web Server and apache Plugin mod_wsgi [for python] will be used.
+
+  ## About the Application
+      The application that is being deployed is name as Item Catalog which was developed as part of the udacity project only.
+      The application is developed using following languages and Open source APIs.
+              *python 2.7 with flask framework,Postgresql, Google Oauth API, Foursquare API*
+      To Get More info about application, check below Link
+            URL :[ Item_Catalog ](https://github.com/rawatankit90/item_catalog)  
+      .
 
 # Creating an AWS account and setup
 
 1) Create an AWS account
 2) Add Lightsail service from AWS
-    The service is free for first 30 days
+    * The service is free for first 30 days *
 3) Select Linux Distribution  ->  'OS' only option -> ubuntu 16.04
 4) Click on Create after selecting 5$free tier.
 5) Wait for the M/C to show status 'running'
-6) Attach the Static IP in the networking tab -> note down the IP address as it will be helpful in future
-7) Go to the Account and download the default Private Key
+6) Attach the Static IP in the networking tab -> note down the **IP address** as it will be helpful in future
+7) Go to the Amazon Account and download the default Private Key
 8) Open the gitbash in your local computer
-9) In a folder create a folder .ssh
-10) Place the downloaded key in the folder .ssh
-11) Give permission chmod 600 to the key
+9) Create a folder in your computer using `$ mkdir .ssh`
+10) Place the downloaded key in the folder just created above.ssh
+11) Give permission chmod 600 to the key file
 12) Perform ssh to lightsail accounts using below command.
       `ssh -i LightsailDefault.pem ubuntu@18.219.88.85`
+
 
 # Create a New User account 'grader' and give sudo access
 
@@ -34,12 +42,14 @@ The application is developed using following languages and Open source APIs. Get
 4) Install Finger to verify the user
 
      `$ sudo apt-get install finger`
+5) verify the user is created
+     `$ finger`
 
 # Update all currently installed packages
   Run Below 2 command to update the packages
 
-  1) `$ sudo apt-get update  -> It updates the source list`
-  2) `$ sudo apt-get upgrade -> It updates the packages`
+  1) `$ sudo apt-get update`  -> It updates the source list
+  2) `$ sudo apt-get upgrade` -> It updates the packages
 
 # Configure the local timezone to UTC
 
@@ -51,7 +61,7 @@ The application is developed using following languages and Open source APIs. Get
   1) Login into grader account from the ubuntu account using sudo su grader
 
       `$ sudo su grader`
-    'Kind of a inception feeling' (home to ubuntu and from ubuntu to grader)
+    'Kind of a inception movie feeling :)' (home to ubuntu and from ubuntu to grader)
   2) In the home directory create a hidden directory name .ssh using below commands
       `$ mkdir .ssh`
   3) Change directory
@@ -281,7 +291,5 @@ and then run the command
   `$ sudo service apache2 restart`
 
 
-
-
-[1]: https://www.digitalocean.com/community/tutorials/how-to-add-and-delete-users-on-an-ubuntu-14-04-vps "How To Add and Delete Users on an Ubuntu 14.04 VPS"
-https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets
+  Sources : [ Udacity ](https://classroom.udacity.com)
+            [ Digitalocean ] (https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets)
