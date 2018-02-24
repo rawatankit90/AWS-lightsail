@@ -23,7 +23,7 @@ The application is based mainly out of python 2.7 and SQL Alchemy.
 
 1) Do ssh from local computer to lightsail account as mentioned in last step of above section
 2) Add a new user called grader:
-      '''$ sudo adduser grader '''
+      `$ sudo adduser grader `
 3) Create a new file under the suoders directory:
       $ sudo nano /etc/sudoers.d/grader.
 
