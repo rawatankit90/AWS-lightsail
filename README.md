@@ -9,7 +9,9 @@ The application is developed using following languages and Open source APIs.
       *python 2.7 with flask framework,Postgresql, Google Oauth API, Foursquare API*   
 To Get More info about application, check below Link  
             URL :[ Item_Catalog ](https://github.com/rawatankit90/item_catalog)  
-      .
+
+# Accessing the Application
+  Click on the link  to access the deployed application :  http://ec2-18-219-88-85.us-east-2.compute.amazonaws.com/
 
 # Creating an AWS account and setup
 
