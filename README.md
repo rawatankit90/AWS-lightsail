@@ -279,13 +279,10 @@ Configure your email:
 
 # Update OAuth authorized JavaScript origins and  Authorized redirect URI
 
-To let users correctly log-in using google account, Modify the Javascript origin and Authorized URI  
-  JavaScript origins :http://ec2-18-219-88-85.us-east-2.compute.amazonaws.com/
+To let users correctly log-in using google account, Modify the Javascript origin and Authorized URI   
+  JavaScript origins :http://ec2-18-219-88-85.us-east-2.compute.amazonaws.com/   
   Authorized URI :http://ec2-18-219-88-85.us-east-2.compute.amazonaws.com/oauth2callback
-
-4) Restart Apache:
-  `$ sudo service apache2 restart`
 
 
 Sources : [ Udacity ](https://classroom.udacity.com)
-          [ Digitalocean ] (https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets)
+          [ Digitalocean ](https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets)
